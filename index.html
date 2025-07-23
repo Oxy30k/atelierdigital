@@ -295,7 +295,7 @@
                 </div>
             </div>
             
-            <div class="contact-form">
+                       <div class="contact-form">
                     <form action="https://formspree.io/f/xblkdbre" method="POST" class="contact-form">
   <div class="form-group">
     <input type="text" name="name" class="form-control" placeholder="Votre Nom" required>
@@ -356,9 +356,11 @@ document.addEventListener("keydown", (e) => {
   if (window.secretKey.includes("admin")) {
     window.location.href = "login.html";
   }
-  // On garde les 20 dernières touches max
   if (window.secretKey.length > 20) window.secretKey = window.secretKey.slice(-20);
-    // Gestion du formulaire
+});
+
+// ✅ Correction : éviter les envois multiples du formulaire
+document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("form");
   const formMessage = document.createElement("p");
 
